@@ -22,6 +22,22 @@ def read_file(filename):
 def find_word(string_list):
     """ Return a list of words that contain three digit numbers in the middle. """
 
+    empty = []
+    start_list = []
+    count = 0
+    for string in string_list:
+        if re.search('\b[A-Za-z]+d{3}[A-Za-z]+\b',string):
+            empty.append(string) 
+        if re.search('^B',string):
+            start_list.append(string)
+        if re.search('^E',string):
+            start_list.append(string)
+        if re.search('^T',string):
+            start_list.append(string)
+        count += 1
+
+    return start_list
+            
     # initialize an empty list
 
     # define the regular expression
@@ -33,34 +49,25 @@ def find_word(string_list):
     # loop through the found words and add the words to your empty list 
 
     #return the list of all words that start with the letter B, E, or T
-    pass
 
 
 def find_days(string_list):
     """ Return a list of days from the list of strings the dates format in the text are MM/DD/YYYY. """  
 
     # initialize an empty list
-
-    # define the regular expression
-
-    # loop through each line of the string list
     
+
     # find all the dates that match the regular expression in each line
     
     # loop through the found dates and only add the days to your empty list 
     
     #return the list of days
-    pass
 
 def find_domains(string_list):
     """ Return a list of web address domains from the list of strings the domains of a wbsite are after www. """
 
     # initialize an empty list
-
-    # define the regular expression
-
-    # loop through each line of the string list
-
+    
     # find all the domains that match the regular expression in each line
 
     # loop through the found domains
