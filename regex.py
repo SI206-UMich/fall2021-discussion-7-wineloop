@@ -23,20 +23,13 @@ def find_word(string_list):
     """ Return a list of words that contain three digit numbers in the middle. """
 
     empty = []
-    start_list = []
-    count = 0
-    for string in string_list:
-        if re.search('\b[A-Za-z]+d{3}[A-Za-z]+\b',string):
-            empty.append(string) 
-        if re.search('^B',string):
-            start_list.append(string)
-        if re.search('^E',string):
-            start_list.append(string)
-        if re.search('^T',string):
-            start_list.append(string)
-        count += 1
+    reg_exp = r'\b([A-Za-z]+)\d{3}([A-Za-z]+)'
 
-    return start_list
+    for line in string_list:
+        x = re.findall(reg_exp, line)
+        for i in x:
+            empty.append(i)
+    return empty
             
     # initialize an empty list
 
