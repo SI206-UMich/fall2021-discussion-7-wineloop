@@ -48,7 +48,17 @@ def find_days(string_list):
     """ Return a list of days from the list of strings the dates format in the text are MM/DD/YYYY. """  
 
     # initialize an empty list
-    
+    days = []
+ 
+   # define the regular expression
+    reg_exp = r'(\b\d{1,2}[\/](\d{1,2})[\/](\d{4})\b)'
+   # loop through each line of the string list
+    for line in string_list:
+       x = re.findall(reg_exp, line)
+       for i in x:
+           days.append(i[1])   
+    return days
+
 
     # find all the dates that match the regular expression in each line
     
