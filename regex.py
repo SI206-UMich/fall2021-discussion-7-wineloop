@@ -70,8 +70,17 @@ def find_domains(string_list):
     """ Return a list of web address domains from the list of strings the domains of a wbsite are after www. """
 
     # initialize an empty list
-    
-    # find all the domains that match the regular expression in each line
+    empty_domain = []
+   # define the regular expression
+    reg_exp = r'https?://[\w.]+'
+   # loop through each line of the string list
+    for line in string_list:
+       x = re.findall(reg_exp, line)
+       for i in x:
+           domain= i.split('//')[1].strip('www.')
+           empty_domain.append(domain)
+    return empty_domain
+     # find all the domains that match the regular expression in each line
 
     # loop through the found domains
 
